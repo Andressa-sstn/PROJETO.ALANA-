@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stdint.h>
+#include "comunicacao.h"
+
+// Função para enviar alerta
+void enviar_alerta(bool alerta) {
+    // Implementação do envio de alerta via Wi-Fi/Bluetooth
+    if (alerta) {
+        printf("Alerta enviado!\n");
+    }
+}
