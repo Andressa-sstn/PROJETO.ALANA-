@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "bitdoglab.h"  // Biblioteca específica para a plataforma BitDogLab
+
+// Definição de pinos dos sensores
+#define TEMP_SENSOR_PIN A0  // Sensor de temperatura (LM35)
+#define ULTRASSONIC_TRIG 5  // Pino de Trigger do sensor de ultrassom
+#define ULTRASSONIC_ECHO 6  // Pino de Echo do sensor de ultrassom
+#define BUZZER_PIN 7        // Buzzer para alertas
+
+// Variáveis globais
+float temperatura = 0.0;
+float distancia = 0.0;
+bool alerta = false;
+
+// Função para ler temperatura do sensor LM35
+float lerTemperatura() {
+    int leitura = analogRead(TEMP_SENSOR_PIN);
+    float tempC = (leitura * 5.0 / 1023.0) * 100.0;
+    return tempC;
+}
+
+// Função para medir distância do ultrassom
+float medirDistancia() {
+    digitalWrite(ULTRASSONIC_TRIG, LOW);
+    delayMicroseconds(2);
+    digitalWrite(ULTRASSONIC_TRIG, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(ULTRASSONIC_TRIG, LOW);
+    int duracao = pulseIn(ULTRASSONIC_ECHO, HIGH);
+    float distancia_cm = duracao * 0.034 / 2;
+    return distancia_cm;
+}
+
+// Função para verificar se há anomalias
+void verificarAnomalias() {
+    temperatura = lerTemperatura();
+    distancia = medirDistancia();
+    
+    printf("Temperatura: %.2f°C\n", temperatura);
+    printf("Distância renal: %.2f cm\n", distancia);
+    
+    if (temperatura > 38.0 || distancia < 2.5) {
+        alerta = true;
+        digitalWrite(BUZZER_PIN, HIGH);
+        printf("ALERTA: Possível anomalia detectada!\n");
+    } else {
+        alerta = false;
+        digitalWrite(BUZZER_PIN, LOW);
+        printf("Status: Normal\n");
+    }
+}
+
+// Função principal
+int main() {
+    pinMode(TEMP_SENSOR_PIN, INPUT);
+    pinMode(ULTRASSONIC_TRIG, OUTPUT);
+    pinMode(ULTRASSONIC_ECHO, INPUT);
+    pinMode(BUZZER_PIN, OUTPUT);
+    
+    printf("Iniciando monitoramento do câncer renal...\n");
+    
+    while (1) {
+        verificarAnomalias();
+        delay(2000); // Atualiza a cada 2 segundos
+    }
+    return 0;
+}
