@@ -1,0 +1,31 @@
+                                      +---------------+
+                                      |  Microcontrolador  |
+                                      |  (ARM Cortex-M4)    |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Sensor de Temperatura  |
+                                      |  (LM35 ou MLX90614)     |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Sensor de Ultrassom    |
+                                      |  (HC-SR04 ou similar)   |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Módulo de Comunicação  |
+                                      |  (Wi-Fi/Bluetooth)     |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Display OLED (SSD1306) |
+                                      +---------------+
