@@ -1,0 +1,34 @@
+                                      +---------------+
+                                      |  Inicialização    |
+                                      |  do Sistema        |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Leitura dos Sensores |
+                                      |  (Temperatura e      |
+                                      |   Ultrassom)          |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Processamento dos    |
+                                      |  Dados (Análise e     |
+                                      |   Detecção de Anomalias) |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Exibição dos Resultados|
+                                      |  (Display OLED)        |
+                                      +---------------+
+                                             |
+                                             |
+                                             v
+                                      +---------------+
+                                      |  Envio de Alertas     |
+                                      |  (Wi-Fi/Bluetooth)     |
+                                      +---------------+
