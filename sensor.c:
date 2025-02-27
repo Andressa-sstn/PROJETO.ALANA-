@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdint.h>
+#include "sensor.h"
+
+// Função para ler a temperatura
+float ler_temperatura(int pino) {
+    // Implementação da leitura da temperatura
+    return 36.5; // Valor exemplo
+}
+
+// Função para ler o ultrassom
+float ler_ultrassom(int pino) {
+    // Implementação da leitura do ultrassom
+    return 50.0; // Valor exemplo
+}
