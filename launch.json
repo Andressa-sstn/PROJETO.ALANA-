@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "GNU Arm Embedded",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/main.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIDebuggerPath": "C:/Program Files (x86)/GNU Tools Arm Embedded/9 2020-q2-update/bin/arm-none-eabi-gdb.exe",
+            "filterStderr": true,
+            "setupCommands": [
+                {
+                    "description": "Habilitar a depuração",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
